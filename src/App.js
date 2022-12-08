@@ -1,15 +1,17 @@
 import "./App.css";
 import { getProducts, getProductsByCategory } from "./utils/products";
 import React, { useState, useEffect, useRef } from "react";
+import Navbar from "./components/navigation/Navbar";
+import Home from "./components/home/Home";
 import ProductList from "./components/products/ProductList";
-// import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const initialState = {
     loading: false,
     error: false,
     products: [],
-    category: ""
+    category: "",
   };
 
   const [state, setState] = useState(initialState);
@@ -34,13 +36,21 @@ function App() {
   }, [state.products]);
 
   return (
-    <div className="App">
-      <h1>hello</h1>
-      {!state.products.length ? (
-        <h3>Loading...</h3>
-      ) : (
-        <ProductList products={state.products} />
-      )}
+    <div id ="app">
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/products"
+            element={<ProductList products={state.products} />}
+          />
+          <Route
+            path={`/products/${state.category}`}
+            element={<ProductList products={state.products} />}
+          />
+        </Routes>
+      </main>
     </div>
   );
 }

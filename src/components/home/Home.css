@@ -1,0 +1,45 @@
+.home-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: rgba(255, 255, 255, .7);
+    position: relative;
+    z-index: 0;
+    background-color: black;
+}
+
+.home-container::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../../../public/homepage.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: .7;
+    z-index: -1;
+}
+
+.get-started {
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, .7);
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .7);
+}
+
+.get-started:hover {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, .7);
+}

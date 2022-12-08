@@ -1,17 +1,14 @@
-* {
-    /* border: 2px solid black; */
-}
-
 .products-container {
     display: flex;
     flex-flow: row wrap;
+    height: 100%;
 }
 
 .product-card-container {
     width: 20%;
     /* border: 2px solid black; */
     padding: 20px;
-    height: 50vh;
+    height: 50%;
    
 }
 
