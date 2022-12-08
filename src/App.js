@@ -11,7 +11,7 @@ function App() {
     loading: false,
     error: false,
     products: [],
-    category: "",
+    category: ""
   };
 
   const [state, setState] = useState(initialState);
@@ -23,12 +23,16 @@ function App() {
 
   useEffect(() => {
     if (isMounted.current) {
-      state.category.length
+      state.category.length == ""
         ? getProducts(state, setState)
-        : getProductsByCategory(state, setState);
+        : getProductsByCategory(state, setState, state.category);
     } else {
       isMounted.current = true;
     }
+  }, [state.category]);
+
+  useEffect(() => {
+    console.log(state.category);
   }, [state.category]);
 
   useEffect(() => {
@@ -36,19 +40,25 @@ function App() {
   }, [state.products]);
 
   return (
-    <div id ="app">
+    <div id="app">
       <Navbar />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
             path="/products"
-            element={<ProductList products={state.products} />}
+            element={
+              <ProductList
+                state={state}
+                setState={setState}
+                products={state.products}
+              />
+            }
           />
-          <Route
+          {/* <Route
             path={`/products/${state.category}`}
             element={<ProductList products={state.products} />}
-          />
+          /> */}
         </Routes>
       </main>
     </div>
