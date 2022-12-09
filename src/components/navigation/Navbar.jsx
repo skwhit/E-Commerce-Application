@@ -1,43 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import DarkMode from "../darkmode/DarkMode";
+import { ThemeContext } from "../../hooks/ThemeContext";
 
 export default function Navbar() {
-  const [light, setLight] = useState(true);
 
-  const handleMode = () => {
-    setLight((light) => !light);
-  };
+  const {theme} = useContext(ThemeContext);
 
   return (
-    <nav>
+    <nav id={`${theme}`}>
       <div className="logo-container">
         <img class="logo" src="./logo.png" alt="logo" />
       </div>
       <ul className="nav-list">
         <li className="nav-item">
-          <Link className="nav-link" to="/">
+          <Link id={`${theme}`} className="nav-link" to="/">
             Home
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/products">
+          <Link id={`${theme}`} className="nav-link" to="/products">
             Products
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/cart">
+          <Link id={`${theme}`} className="nav-link" to="/cart">
             <i class="fa-solid fa-cart-shopping"></i>
           </Link>
         </li>
-        <li className="nav-item">
-          <div onClick={handleMode} className="nav-link mode">
-            {light ? (
-              <i class="fa-solid fa-sun"></i>
-            ) : (
-              <i class="fa-solid fa-moon"></i>
-            )}
-          </div>
+        <li id={`${theme}`} className="nav-item">
+          <DarkMode className="NavLink" />
         </li>
         {/* <li>
                 <Link to="/products/:id">Home</Link>

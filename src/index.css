@@ -2,3 +2,8 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+#dark {
+  background-color: rgb(41,41,41);
+  color: white;
+}

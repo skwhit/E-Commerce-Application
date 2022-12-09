@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ThemeContext } from "../../hooks/ThemeContext";
 import "./Products.css";
 
 export default function ProductCard({ product }) {
+
+  const {theme} = useContext(ThemeContext);
+
   const {
     id,
     category,
@@ -23,7 +27,7 @@ export default function ProductCard({ product }) {
   }
 
   return (
-    <div className="product-card-container">
+    <div id={`${theme}`} className="product-card-container">
       <div className="product-card-border">
       <h3 className="card-title">{cardTitle}</h3>
         <div className="product-img-container">

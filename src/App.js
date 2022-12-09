@@ -1,10 +1,11 @@
 import "./App.css";
 import { getProducts, getProductsByCategory } from "./utils/products";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import Navbar from "./components/navigation/Navbar";
 import Home from "./components/home/Home";
 import ProductList from "./components/products/ProductList";
 import { Route, Routes } from "react-router-dom";
+import { ThemeContext } from "./hooks/ThemeContext"
 
 function App() {
   const initialState = {
@@ -16,6 +17,7 @@ function App() {
   };
 
   const [state, setState] = useState(initialState);
+  const [theme, setTheme] = useState('light');
   const isMounted = useRef(false);
 
   useEffect(() => {
@@ -42,7 +44,13 @@ function App() {
     console.log(state.products);
   }, [state.products]);
 
+  const providerTheme = useMemo(
+    () => ({ theme, setTheme }),
+    [theme, setTheme]
+  );
+
   return (
+    <ThemeContext.Provider value={providerTheme}>
     <div id="app">
       <Navbar />
       <main>
@@ -66,6 +74,7 @@ function App() {
         </Routes>
       </main>
     </div>
+    </ThemeContext.Provider>
   );
 }
 

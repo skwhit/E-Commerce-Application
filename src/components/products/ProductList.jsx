@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import ProductCard from "./ProductCard";
 import { v4 as uuidv4 } from "uuid";
 import "./Products.css";
+import { ThemeContext } from "../../hooks/ThemeContext";
+
 
 export default function ProductList({ state, setState, products, categoryCount }) {
+
+  const {theme} = useContext(ThemeContext);
 
   const categories = document.body.querySelectorAll(".category");
   const selectedButton = "background-color: rgb(72, 91, 123); color: white";
@@ -72,7 +76,7 @@ export default function ProductList({ state, setState, products, categoryCount }
           Electronics
         </button>
       </div>
-      <div className="products-container">
+      <div id={`${theme}`} className={`products-container`}>
         {products.map((product) => (
           <ProductCard key={uuidv4()} product={product} />
         ))}
