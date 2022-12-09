@@ -11,19 +11,22 @@ function App() {
     loading: false,
     error: false,
     products: [],
-    category: ""
+    category: "",
+    categoryCount: 0
   };
 
   const [state, setState] = useState(initialState);
   const isMounted = useRef(false);
 
   useEffect(() => {
+    setState({...state, loading: true, categoryCount: state.categoryCount + 1})
+    sessionStorage.removeItem('categoryID');
     getProducts(state, setState);
   }, []);
 
   useEffect(() => {
     if (isMounted.current) {
-      state.category.length == ""
+      !state.category.length
         ? getProducts(state, setState)
         : getProductsByCategory(state, setState, state.category);
     } else {
@@ -52,6 +55,7 @@ function App() {
                 state={state}
                 setState={setState}
                 products={state.products}
+                categoryCount={state.categoryCount}
               />
             }
           />

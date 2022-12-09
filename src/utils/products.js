@@ -12,7 +12,7 @@ export async function getProducts(state, setState) {
 export async function getProductsByCategory(state, setState, category) {
   try {
     const result = await fetch(
-      `https://fakestoreapi.com/products/categories/?=jewelery`
+      `https://fakestoreapi.com/products/category/${category}`
     );
     const products = await result.json();
     console.log(products)
