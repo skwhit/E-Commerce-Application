@@ -16,17 +16,17 @@ export default function Navbar() {
       </div>
       <ul className="nav-list">
         <li className="nav-item">
-          <Link className="nav-link" to="/e-commerce-application/">
+          <Link className="nav-link" to="/">
             Home
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/e-commerce-application/products">
+          <Link className="nav-link" to="/products">
             Products
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/e-commerce-application/cart">
+          <Link className="nav-link" to="/cart">
             <i class="fa-solid fa-cart-shopping"></i>
           </Link>
         </li>
