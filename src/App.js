@@ -47,9 +47,9 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/e-commerce-application/" element={<Home />} />
           <Route
-            path="/products"
+            path="/e-commerce-application/products"
             element={
               <ProductList
                 state={state}
