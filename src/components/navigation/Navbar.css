@@ -1,6 +1,7 @@
+
 nav {
     display: flex;
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     z-index: 1;
     background-color: white;
@@ -28,7 +29,6 @@ nav {
 
 .nav-link {
     text-decoration: none;
-    color: black;
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;

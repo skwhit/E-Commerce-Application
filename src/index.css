@@ -3,7 +3,17 @@
   box-sizing: border-box;
 }
 
-#dark {
-  background-color: rgb(41,41,41);
-  color: white;
+.dark {
+  background-color: rgb(36, 36, 49) !important;
+  color: white !important;
+}
+
+.dark-card {
+  background-color: rgb(11, 11, 14) !important;
+  box-shadow: 5px 10px 20px #342f4e !important;
+  color: white !important;
+}
+
+.dark-text {
+  color: white !important;
 }

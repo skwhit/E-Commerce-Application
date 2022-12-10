@@ -1,6 +1,6 @@
 #app {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
 }
 
 main {
@@ -9,7 +9,10 @@ main {
     width: 100vw;
 }
 
-#dark {
-    background-color: rgb(41,41,41);
-    color: white;
-  }
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}

@@ -151,6 +151,7 @@
 
 .cart-quantity:focus {
     outline: none;
+    background-color: rgb(196, 164, 84);
 }
 
 @media (max-width: 1200px) {
@@ -169,10 +170,10 @@
    .categories-container {
     /* position: absolute; */
     top: 30px;
-    left: 0;
-    transform: translate(50%, 0);
+    left: 50%;
+    transform: translate(-50%, 0);
     /* border-bottom: 2px solid black; */
-    width: 50%;
+    width: 500px;
    }
 
    .nav-link {

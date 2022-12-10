@@ -27,15 +27,15 @@ export default function ProductCard({ product }) {
   }
 
   return (
-    <div id={`${theme}`} className="product-card-container">
-      <div className="product-card-border">
-      <h3 className="card-title">{cardTitle}</h3>
+    <div className={`product-card-container ${theme}`}>
+      <div className={`product-card-border ${theme}-card`}>
+      <h3 className={`card-title ${theme}-text`}>{cardTitle}</h3>
         <div className="product-img-container">
           <img onClick={displayDetail} className="product-card-img" src={image} alt="Product Image" />
         </div>
         
         <div className="card-info">
-          <h3>{`$${price}`}</h3>
+          <h3 className={`${theme}-text`}>{`$${price}`}</h3>
           {/* <div>
             <button className="adjust-cart">-</button>
             <input

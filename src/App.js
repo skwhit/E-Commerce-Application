@@ -52,7 +52,9 @@ function App() {
   return (
     <ThemeContext.Provider value={providerTheme}>
     <div id="app">
+    <header className={`${theme}`}>
       <Navbar />
+      </header>
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
