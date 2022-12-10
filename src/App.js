@@ -83,12 +83,12 @@ function App() {
                 />
               }
             />
-            {/* <Route
-              path={`/products/${state.category}/:id`}
+            <Route
+              path={`/products/:id`}
               element={
                 <Details />
               }
-            /> */}
+            />
           </Routes>
         </main>
       </div>

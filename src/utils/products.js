@@ -21,3 +21,17 @@ export async function getProductsByCategory(state, setState, category) {
     console.log(err.message);
   }
 }
+
+export async function getProductById(id, setProduct, setLoading) {
+  try {
+    const result = await fetch(
+      `https://fakestoreapi.com/products/${id}`
+    );
+    const product = await result.json();
+    console.log(product)
+    setProduct(product);
+    setLoading(false);
+  } catch (err) {
+    console.log(err.message);
+  }
+}

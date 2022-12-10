@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from "../../hooks/ThemeContext";
 import "./Products.css";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductCard({ product }) {
 
   const {theme} = useContext(ThemeContext);
+  const navigate = useNavigate();
 
   const {
     id,
@@ -22,16 +24,17 @@ export default function ProductCard({ product }) {
     cardTitle = cardTitle.substring(0, 44) + "...";
   }
   
-  const displayDetail = () => {
-    console.log("hi")
+  const displayDetail = (e) => {
+    console.log(e.target.id)
+    navigate(`/products/${e.target.id}`, {state: {productId: e.target.id}})
   }
 
   return (
     <div className={`product-card-container ${theme}`}>
       <div className={`product-card-border ${theme}-card`}>
       <h3 className={`card-title ${theme}-text`}>{cardTitle}</h3>
-        <div className="product-img-container">
-          <img onClick={displayDetail} className="product-card-img" src={image} alt="Product Image" />
+        <div id={id} onClick={displayDetail} className="product-img-container">
+          <img id={id} className="product-card-img" src={image} alt="Product Image" />
         </div>
         
         <div className="card-info">

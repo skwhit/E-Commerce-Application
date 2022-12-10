@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import "./Products.css";
 import { ThemeContext } from "../../hooks/ThemeContext";
 import { useNavigate } from "react-router-dom";
+import loadingGif from "./loading-gif.gif";
+import Loading from "../loading/Loading";
 
 export default function ProductList({
   state,
@@ -37,7 +39,7 @@ export default function ProductList({
     console.log(e);
     setState({ ...state, category: `${e.target.value}` });
     navigate(`/products/${e.target.value}`);
-    // sessionStorage.setItem("categoryID", `${e.target.id}`);
+    sessionStorage.setItem("categoryID", `${e.target.id}`);
   };
 
   return (
@@ -91,7 +93,7 @@ export default function ProductList({
       </div>
       <div className={`products-container ${theme}`}>
         {loading ? (
-          <h1>Loading...</h1>
+          <Loading />
         ) : (
           products.map((product) => (
             <ProductCard key={uuidv4()} product={product} />
