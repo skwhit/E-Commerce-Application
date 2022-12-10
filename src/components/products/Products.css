@@ -32,6 +32,7 @@
     flex-flow: row wrap;
     height: 100%;
     padding-top: 40px;
+    justify-content: center;
 }
 
 .product-card-container {

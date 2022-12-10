@@ -17,7 +17,6 @@ export default function Navbar() {
   };
 
   return (
-    
     <nav className={`${theme}`}>
       <div className="logo-container">
         <img class="logo" src={logo} alt="logo" />

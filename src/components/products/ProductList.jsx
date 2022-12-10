@@ -3,28 +3,32 @@ import ProductCard from "./ProductCard";
 import { v4 as uuidv4 } from "uuid";
 import "./Products.css";
 import { ThemeContext } from "../../hooks/ThemeContext";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductList({
   state,
   setState,
   products,
   categoryCount,
+  category,
+  loading,
 }) {
   const { theme } = useContext(ThemeContext);
+  const navigate = useNavigate();
 
   const categories = document.body.querySelectorAll(".category");
   const selectedButton = "background-color: rgb(72, 91, 123); color: white";
   const defaultButton = "background-color: white; color: black";
 
   useEffect(() => {
-    setState({...state, category: ""})
+    setState({ ...state, category: "" });
     categories.forEach((category) => (category.style = defaultButton));
     // const currentCat = sessionStorage.getItem("categoryID");
     // console.log(currentCat);
     // if (currentCat && categoryCount != 0) {
     //   document.getElementById(currentCat).style = selectedButton;
-    // } 
-      document.getElementById("cat1").style = selectedButton;
+    // }
+    document.getElementById("cat1").style = selectedButton;
   }, []);
 
   const categoryChange = (e) => {
@@ -32,6 +36,7 @@ export default function ProductList({
     e.target.style = selectedButton;
     console.log(e);
     setState({ ...state, category: `${e.target.value}` });
+    navigate(`/products/${e.target.value}`);
     // sessionStorage.setItem("categoryID", `${e.target.id}`);
   };
 
@@ -85,9 +90,13 @@ export default function ProductList({
         </button>
       </div>
       <div className={`products-container ${theme}`}>
-        {products.map((product) => (
-          <ProductCard key={uuidv4()} product={product} />
-        ))}
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          products.map((product) => (
+            <ProductCard key={uuidv4()} product={product} />
+          ))
+        )}
       </div>
     </>
   );

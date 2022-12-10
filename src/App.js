@@ -5,7 +5,8 @@ import Navbar from "./components/navigation/Navbar";
 import Home from "./components/home/Home";
 import ProductList from "./components/products/ProductList";
 import { Route, Routes } from "react-router-dom";
-import { ThemeContext } from "./hooks/ThemeContext"
+import { ThemeContext } from "./hooks/ThemeContext";
+import Details from "./components/details/Details"
 
 function App() {
   const initialState = {
@@ -13,20 +14,26 @@ function App() {
     error: false,
     products: [],
     category: "",
-    categoryCount: 0
   };
 
   const [state, setState] = useState(initialState);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState("light");
   const isMounted = useRef(false);
 
   useEffect(() => {
-    setState({...state, loading: true, categoryCount: state.categoryCount + 1})
-    sessionStorage.removeItem('categoryID');
+    setState({
+      ...state,
+      loading: true,
+    });
+    sessionStorage.removeItem("categoryID");
     getProducts(state, setState);
   }, []);
 
   useEffect(() => {
+    setState({
+      ...state,
+      loading: true,
+    });
     if (isMounted.current) {
       !state.category.length
         ? getProducts(state, setState)
@@ -37,45 +44,54 @@ function App() {
   }, [state.category]);
 
   useEffect(() => {
-    console.log(state.category);
-  }, [state.category]);
+    console.log(state.loading)
+  },[state.loading])
 
-  useEffect(() => {
-    console.log(state.products);
-  }, [state.products]);
-
-  const providerTheme = useMemo(
-    () => ({ theme, setTheme }),
-    [theme, setTheme]
-  );
+  const providerTheme = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
 
   return (
     <ThemeContext.Provider value={providerTheme}>
-    <div id="app">
-    <header className={`${theme}`}>
-      <Navbar />
-      </header>
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/products"
-            element={
-              <ProductList
-                state={state}
-                setState={setState}
-                products={state.products}
-                categoryCount={state.categoryCount}
-              />
-            }
-          />
-          {/* <Route
-            path={`/products/${state.category}`}
-            element={<ProductList products={state.products} />}
-          /> */}
-        </Routes>
-      </main>
-    </div>
+      <div id="app">
+        <header className={`${theme}`}>
+          <Navbar />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/products"
+              element={
+                <ProductList
+                  state={state}
+                  setState={setState}
+                  products={state.products}
+                  categoryCount={state.categoryCount}
+                  loading={state.loading}
+                />
+              }
+            />
+            <Route
+              path={`/products/${state.category}`}
+              element={
+                <ProductList
+                  state={state}
+                  setState={setState}
+                  products={state.products}
+                  categoryCount={state.categoryCount}
+                  loading={state.loading}
+                  // category={state.category}
+                />
+              }
+            />
+            {/* <Route
+              path={`/products/${state.category}/:id`}
+              element={
+                <Details />
+              }
+            /> */}
+          </Routes>
+        </main>
+      </div>
     </ThemeContext.Provider>
   );
 }
