@@ -2,6 +2,7 @@ export async function getProducts(state, setState) {
   try {
     const result = await fetch(`https://fakestoreapi.com/products`);
     const products = await result.json();
+    console.log(products)
     setState({ ...state, products: products, loading: false, error: false});
     console.log("hi")
   } catch (err) {

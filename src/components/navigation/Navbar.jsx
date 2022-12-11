@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import DarkMode from "../darkmode/DarkMode";
-import { ThemeContext } from "../../hooks/ThemeContext";
+import { ThemeContext } from "../../Context/ThemeContext";
 import logo from './logo192.png';
 
 export default function Navbar() {

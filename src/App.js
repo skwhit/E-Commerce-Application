@@ -1,12 +1,13 @@
 import "./App.css";
 import { getProducts, getProductsByCategory } from "./utils/products";
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo, useContext } from "react";
 import Navbar from "./components/navigation/Navbar";
 import Home from "./components/home/Home";
 import ProductList from "./components/products/ProductList";
 import { Route, Routes } from "react-router-dom";
-import { ThemeContext } from "./hooks/ThemeContext";
+import { ThemeContext } from "./Context/ThemeContext";
 import Details from "./components/details/Details"
+import { CartContext } from "./Context/Context";
 
 function App() {
   const initialState = {
@@ -19,7 +20,9 @@ function App() {
   const [state, setState] = useState(initialState);
   const [theme, setTheme] = useState("light");
   const isMounted = useRef(false);
-
+  const cartState=useContext(CartContext);
+  console.log(cartState)
+  
   useEffect(() => {
     setState({
       ...state,
@@ -42,10 +45,6 @@ function App() {
       isMounted.current = true;
     }
   }, [state.category]);
-
-  useEffect(() => {
-    console.log(state.loading)
-  },[state.loading])
 
   const providerTheme = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
 
