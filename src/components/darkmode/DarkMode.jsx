@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from "../../Context/ThemeContext";
-import './DarkMode.css'
+import "./DarkMode.css";
 
 export default function DarkMode() {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -12,9 +12,9 @@ export default function DarkMode() {
   return (
     <div onClick={handleMode} className="nav-link mode">
       {theme === "light" ? (
-        <i class="fa-solid fa-sun sun"></i>
+        <i className="fa-solid fa-sun sun"></i>
       ) : (
-        <i class="fa-solid fa-moon moon"></i>
+        <i className="fa-solid fa-moon moon"></i>
       )}
     </div>
   );

@@ -1,55 +1,50 @@
-
 nav {
-    display: flex;
-    /* position: fixed; */
-    width: 100%;
-    z-index: 1;
-    background-color: white;
-    padding: 0 40px;
-    justify-content: space-between;
-    max-width: 1900px;
+  display: flex;
+  /* position: fixed; */
+  width: 100%;
+  z-index: 1;
+  background-color: white;
+  padding: 0 40px;
+  justify-content: space-between;
+  max-width: 1900px;
 }
 
 .logo-container {
-    width: 80px;
-    height: 80px;
+  width: 80px;
+  height: 80px;
 }
 
 .logo {
-    width: 100%;
+  width: 100%;
 }
 
 .nav-list {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 400px;
-    list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+  list-style: none;
 }
 
 .nav-link {
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 2px 10px;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 2px 10px;
 }
 
 .nav-link:hover {
-    color: rgb(72, 91, 123);
+  color: rgb(72, 91, 123);
 }
 
 .mode {
-    width: 40px;
+  width: 40px;
 }
 
 .mode i {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
-
-

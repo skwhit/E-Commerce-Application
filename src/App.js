@@ -6,8 +6,9 @@ import Home from "./components/home/Home";
 import ProductList from "./components/products/ProductList";
 import { Route, Routes } from "react-router-dom";
 import { ThemeContext } from "./Context/ThemeContext";
-import Details from "./components/details/Details"
+import Details from "./components/details/Details";
 import { CartContext } from "./Context/Context";
+import Cart from "./components/cart/Cart";
 
 function App() {
   const initialState = {
@@ -20,9 +21,9 @@ function App() {
   const [state, setState] = useState(initialState);
   const [theme, setTheme] = useState("light");
   const isMounted = useRef(false);
-  const cartState=useContext(CartContext);
-  console.log(cartState)
-  
+  const cartState = useContext(CartContext);
+  console.log(cartState);
+
   useEffect(() => {
     setState({
       ...state,
@@ -82,12 +83,9 @@ function App() {
                 />
               }
             />
-            <Route
-              path={`/products/:id`}
-              element={
-                <Details />
-              }
-            />
+            <Route path={`/products/:id`} element={<Details />} />
+
+            <Route path={`/cart`} element={<Cart />} />
           </Routes>
         </main>
       </div>

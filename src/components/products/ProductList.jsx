@@ -7,14 +7,7 @@ import { useNavigate } from "react-router-dom";
 import loadingGif from "./loading-gif.gif";
 import Loading from "../loading/Loading";
 
-export default function ProductList({
-  state,
-  setState,
-  products,
-  categoryCount,
-  category,
-  loading,
-}) {
+export default function ProductList({ state, setState, products, loading }) {
   const { theme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
@@ -25,11 +18,6 @@ export default function ProductList({
   useEffect(() => {
     setState({ ...state, category: "" });
     categories.forEach((category) => (category.style = defaultButton));
-    // const currentCat = sessionStorage.getItem("categoryID");
-    // console.log(currentCat);
-    // if (currentCat && categoryCount != 0) {
-    //   document.getElementById(currentCat).style = selectedButton;
-    // }
     document.getElementById("cat1").style = selectedButton;
   }, []);
 
@@ -47,7 +35,6 @@ export default function ProductList({
       <div className={`categories-container ${theme}`}>
         <button
           id="cat1"
-          // style={categoryStyles}
           onClick={categoryChange}
           className={`category`}
           value=""
@@ -56,7 +43,6 @@ export default function ProductList({
         </button>
         <button
           id="cat2"
-          // style={categoryStyles}
           onClick={categoryChange}
           className={`category`}
           value="men's clothing"
@@ -65,7 +51,6 @@ export default function ProductList({
         </button>
         <button
           id="cat3"
-          // style={categoryStyles}
           onClick={categoryChange}
           className={`category`}
           value="women's clothing"
@@ -74,7 +59,6 @@ export default function ProductList({
         </button>
         <button
           id="cat4"
-          // style={categoryStyles}
           onClick={categoryChange}
           className={`category`}
           value="jewelery"
@@ -83,7 +67,6 @@ export default function ProductList({
         </button>
         <button
           id="cat5"
-          // style={categoryStyles}
           onClick={categoryChange}
           className={`category`}
           value="electronics"

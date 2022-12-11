@@ -1,9 +1,15 @@
-import React from 'react'
-import { useCart } from '../../Context/Context'
+import React from "react";
+import { useCart } from "../../Context/Context";
+import CartCard from "./CartCard";
 
 export default function Cart() {
-    const GlobalState=useCart()
+  const { state } = useCart();
+  console.log(state);
   return (
-    <div>Cart</div>
-  )
+    <div className="cart-container">
+      {state.map((item, index) => (
+        <CartCard item={item} index={index} />
+      ))}
+    </div>
+  );
 }

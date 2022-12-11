@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import DarkMode from "../darkmode/DarkMode";
 import { ThemeContext } from "../../Context/ThemeContext";
-import logo from './logo192.png';
+import logo from "./logo192.png";
 
 export default function Navbar() {
   const { theme } = useContext(ThemeContext);
@@ -28,20 +28,12 @@ export default function Navbar() {
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink
-            style={navLinkStyles}
-            className={`nav-link`}
-            to="/products"
-          >
+          <NavLink style={navLinkStyles} className={`nav-link`} to="/products">
             Products
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink
-            style={navLinkStyles}
-            className={`nav-link`}
-            to="/cart"
-          >
+          <NavLink style={navLinkStyles} className={`nav-link`} to="/cart">
             <i className={`fa-solid fa-cart-shopping`}></i>
           </NavLink>
         </li>

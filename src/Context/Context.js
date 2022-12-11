@@ -6,10 +6,10 @@ export const Context = ({ children }) => {
     switch (action.type) {
       case "ADD":
         const tempstate = state.filter((item) => action.payload.id === item.id);
-        if(tempstate.length > 0) {
-          return state
+        if (tempstate.length > 0) {
+          return state;
         } else {
-          return [...state, action.payload]
+          return [...state, action.payload];
         }
       default:
         return state;

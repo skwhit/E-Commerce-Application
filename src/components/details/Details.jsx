@@ -5,7 +5,7 @@ import Loading from "../loading/Loading";
 import "./Details.css";
 import { ThemeContext } from "../../Context/ThemeContext";
 import { uppercase, uppercaseFirstLetter } from "../../utils/functions";
-import { CartContext, useCart } from "../../Context/Context";
+import { useCart } from "../../Context/Context";
 
 export default function Details() {
   const {
@@ -56,7 +56,7 @@ export default function Details() {
                 </h3>
               </div>
               <h4 className="detail-rating">
-                <i class="fa-solid fa-star"></i>
+                <i className="fa-solid fa-star"></i>
                 {rating.rate}
               </h4>
             </div>
@@ -64,7 +64,11 @@ export default function Details() {
             <h3>{category.length ? uppercaseFirstLetter(description) : ""}</h3>
             <div className="detail-cart">
               <h3>{`$${price}`}</h3>
-              <button onClick={()=>dispatch({type:'ADD', payload: product})}>Add to Cart</button>
+              <button
+                onClick={() => dispatch({ type: "ADD", payload: product })}
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
         </section>

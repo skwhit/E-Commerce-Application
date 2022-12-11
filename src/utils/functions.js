@@ -7,5 +7,5 @@ export const uppercase = (str) => {
 };
 
 export const uppercaseFirstLetter = (str) => {
-    return str[0].toUpperCase() + str.substring(1)
-}
+  return str[0].toUpperCase() + str.substring(1);
+};

@@ -1,18 +1,14 @@
-#app {
-    /* display: flex;
-    justify-content: center; */
-}
-
 main {
-    padding-top: 80px;
-    height: 100vh;
-    max-width: 100vw;
+  padding-top: 80px;
+  height: 100vh;
+  max-width: 100vw;
 }
 
 header {
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    position: fixed;
-    z-index: 1;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  position: fixed;
+  z-index: 1;
+  border-bottom: 5px solid lightgrey;
 }
