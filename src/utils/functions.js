@@ -1,3 +1,5 @@
+import ProductList from "../components/products/ProductList";
+
 export const uppercase = (str) => {
   const arr = [];
   for (let word of str.split(" ")) {

@@ -11,6 +11,26 @@ export const Context = ({ children }) => {
         } else {
           return [...state, action.payload];
         }
+      case "INCREASE":
+        const tempstate2 = state.map((item) => {
+          if (item.id === action.payload.id) {
+            return { ...item, quantity: item.quantity + 1 };
+          } else {
+            return item;
+          }
+        });
+        return tempstate2;
+      case "DECREASE":
+        const tempstate3 = state.map((item) => {
+          if (item.id === action.payload.id) {
+            return { ...item, quantity: item.quantity - 1 };
+          } else {
+            return item;
+          }
+        });
+        return tempstate3;
+      case "REM":
+        return [state.filter((item) => action.payload !== state.indexOf(item))];
       default:
         return state;
     }

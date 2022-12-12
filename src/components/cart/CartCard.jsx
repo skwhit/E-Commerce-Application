@@ -16,19 +16,20 @@ export default function CartCard({ item, index }) {
         <div className="quantity-container">
           <p>{`$${item.quantity * item.price}`}</p>
           <div className="quantity-buttons">
-            <button className="adjust-cart">+</button>
-            <input
+            <button onClick={()=>dispatch({type: 'INCREASE', payload: item})} className="adjust-cart">+</button>
+            {/* <input
               //   onChange={quantityChange}
               className="cart-quantity"
               type="text"
-              value={item.quantity}
-            />
-            <button className="adjust-cart">-</button>
+              // value={item.quantity}
+            /> */}
+            <p>{item.quantity}</p>
+            <button onClick={()=>dispatch({type: 'DECREASE', payload: item})} className="adjust-cart">-</button>
           </div>
         </div>
       </div>
       <div className="cart-delete">
-        <button>
+        <button id={index} onClick={(e) => dispatch({ type: "REM", payload: index })}>
           <i className="fa-solid fa-trash-can"></i>
         </button>
       </div>
