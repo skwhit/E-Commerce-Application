@@ -14,23 +14,33 @@ export const Context = ({ children }) => {
       case "INCREASE":
         const tempstate2 = state.map((item) => {
           if (item.id === action.payload.id) {
-            return { ...item, quantity: item.quantity + 1 };
+            return {...item, quantity: item.quantity + 1 };
           } else {
             return item;
           }
         });
         return tempstate2;
-      case "DECREASE":
+      case "CHANGE":
         const tempstate3 = state.map((item) => {
-          if (item.id === action.payload.id) {
-            return { ...item, quantity: item.quantity - 1 };
+          if (item.id === action.payload.id && action.value > 0) {
+            return {...item, quantity: action.value };
           } else {
             return item;
           }
         });
         return tempstate3;
-      case "REM":
-        return [state.filter((item) => action.payload !== state.indexOf(item))];
+      case "DECREASE":
+        const tempstate4 = state.map((item) => {
+          if (item.id === action.payload.id && item.quantity > 1) {
+            return { ...item, quantity: item.quantity - 1 };
+          } else {
+            return item;
+          }
+        });
+        return tempstate4;
+      case "REMOVE":
+        const tempstate5 = state.filter((item) => item.id !== action.payload.id)
+        return tempstate5
       default:
         return state;
     }
@@ -43,11 +53,3 @@ export const Context = ({ children }) => {
 export function useCart() {
   return useContext(CartContext);
 }
-
-// const CartProvider = (props) => {
-//   const [cart, setCart] = useState([]);
-//   const [total, setTotal] = useState(0);
-//   const [cartCount, setCartCount] = useState(0);
-// };
-
-// export const CartContext = createContext(null);

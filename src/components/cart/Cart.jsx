@@ -7,9 +7,9 @@ export default function Cart() {
   console.log(state);
   return (
     <div className="cart-container">
-      {state.map((item, index) => (
-        <CartCard item={item} index={index} />
-      ))}
+      {state.map((item, index) => {
+        return <CartCard item={item} index={index} />;
+      })}
     </div>
   );
 }

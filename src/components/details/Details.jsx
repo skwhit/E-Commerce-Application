@@ -37,6 +37,7 @@ export default function Details() {
   //   setCart([...cart, product])
   // }
 
+  product.quantity = 1;
   return (
     <>
       {loading ? (
