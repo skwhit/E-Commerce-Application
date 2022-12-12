@@ -70,7 +70,7 @@ function App() {
                 />
               }
             />
-            <Route
+            {/* <Route
               path={`/products/${state.category}`}
               element={
                 <ProductList
@@ -82,7 +82,7 @@ function App() {
                   // category={state.category}
                 />
               }
-            />
+            /> */}
             <Route path={`/products/:id`} element={<Details />} />
 
             <Route path={`/cart`} element={<Cart />} />

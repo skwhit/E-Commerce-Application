@@ -1,11 +1,11 @@
 import React from "react";
 import { useCart } from "../../Context/Context";
 import "./Cart.css";
+import { formatPrice } from "../../utils/functions";
 
 export default function CartCard({ item, index }) {
   const { state, dispatch } = useCart();
-  console.log(item);
-  // item.quantity = 1;
+
   return (
     <div className="cart-card" key={index}>
       <div className="cart-img-container">
@@ -14,7 +14,7 @@ export default function CartCard({ item, index }) {
       <div className="cart-info">
         <p>{item.title}</p>
         <div className="quantity-container">
-          <p>{`$${item.quantity * item.price}`}</p>
+          <p>{`$${formatPrice(item.quantity * item.price)}`}</p>
           <div className="quantity-buttons">
             <button onClick={()=>dispatch({type: 'INCREASE', payload: item})} className="adjust-cart">+</button>
             <input

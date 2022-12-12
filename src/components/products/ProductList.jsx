@@ -26,7 +26,7 @@ export default function ProductList({ state, setState, products, loading }) {
     e.target.style = selectedButton;
     console.log(e);
     setState({ ...state, category: `${e.target.value}` });
-    navigate(`/products/${e.target.value}`);
+    navigate(`/products`);
     sessionStorage.setItem("categoryID", `${e.target.id}`);
   };
 

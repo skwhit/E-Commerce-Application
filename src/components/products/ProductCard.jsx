@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { ThemeContext } from "../../Context/ThemeContext";
 import "./Products.css";
 import { useNavigate } from "react-router-dom";
+import { formatPrice } from "../../utils/functions";
 
 export default function ProductCard({ product }) {
   const { theme } = useContext(ThemeContext);
@@ -23,6 +24,8 @@ export default function ProductCard({ product }) {
     cardTitle = cardTitle.substring(0, 44) + "...";
   }
 
+
+
   const displayDetail = (e) => {
     console.log(e.target.id);
     navigate(`/products/${e.target.id}`, { state: { productId: e.target.id } });
@@ -42,7 +45,7 @@ export default function ProductCard({ product }) {
         </div>
 
         <div className="card-info">
-          <h3 className={`${theme}-text`}>{`$${price}`}</h3>
+          <h3 className={`${theme}-text`}>{`$${formatPrice(price)}`}</h3>
         </div>
       </div>
     </div>

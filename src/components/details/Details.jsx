@@ -6,6 +6,7 @@ import "./Details.css";
 import { ThemeContext } from "../../Context/ThemeContext";
 import { uppercase, uppercaseFirstLetter } from "../../utils/functions";
 import { useCart } from "../../Context/Context";
+import { formatPrice } from "../../utils/functions";
 
 export default function Details() {
   const {
@@ -14,6 +15,7 @@ export default function Details() {
 
   const { theme } = useContext(ThemeContext);
   const { dispatch } = useCart();
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState({
@@ -25,6 +27,7 @@ export default function Details() {
     rating: "",
     title: "",
   });
+  const [isAdded, setIsAdded] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -33,11 +36,18 @@ export default function Details() {
 
   const { category, description, id, image, price, rating, title } = product;
 
-  // const addCartItem = () => {
-  //   setCart([...cart, product])
-  // }
+  const handleClick = () => {
+    if (!isAdded) {
+      dispatch({ type: "ADD", payload: product });
+      setIsAdded(true);
+    } else {
+      dispatch({ type: "REMOVE", payload: product });
+      setIsAdded(false);
+    }
+  };
 
   product.quantity = 1;
+
   return (
     <>
       {loading ? (
@@ -64,13 +74,18 @@ export default function Details() {
 
             <h3>{category.length ? uppercaseFirstLetter(description) : ""}</h3>
             <div className="detail-cart">
-              <h3>{`$${price}`}</h3>
-              <button
-                onClick={() => dispatch({ type: "ADD", payload: product })}
-              >
-                Add to Cart
-              </button>
+              <h3>{`$${formatPrice(price)}`}</h3>
+              {!isAdded ? (
+                <button className="detail-add" onClick={handleClick}>
+                  Add to Cart
+                </button>
+              ) : (
+                <button className="detail-remove" onClick={handleClick}>
+                  Remove from Cart
+                </button>
+              )}
             </div>
+            <button onClick={() => navigate(-1)} className="detail-back">{`< Go back`}</button>
           </div>
         </section>
       )}

@@ -75,18 +75,39 @@
   font-size: 2rem;
 }
 
-.detail-cart button {
+.detail-container button {
   padding: 10px;
   font-size: 1.2rem;
   cursor: pointer;
-  background-color: rgb(72, 91, 123);
   color: white;
   border-radius: 3px;
   border: none;
 }
 
-.detail-cart button:hover {
+.detail-add {
+  background-color: rgb(72, 91, 123);
+}
+
+.detail-add:hover {
   background-color: rgb(53, 64, 83);
+}
+
+.detail-remove {
+  background-color: rgb(94, 31, 31);
+}
+
+.detail-remove:hover {
+  background-color: rgb(69, 22, 22);
+}
+
+.detail-back {
+  background-color: rgb(196, 164, 84);
+  align-self: flex-end;
+  margin-right: 15px;
+}
+
+.detail-back:hover {
+  background-color: rgb(178, 149, 77);
 }
 
 @media (max-width: 600px) {
