@@ -13,7 +13,7 @@ export const Context = ({ children }) => {
         }
       case "INCREASE":
         const tempstate2 = state.map((item) => {
-          if (item.id === action.payload.id) {
+          if (item.id === action.payload.id && item.quantity < 99) {
             return {...item, quantity: item.quantity + 1 };
           } else {
             return item;
@@ -22,7 +22,7 @@ export const Context = ({ children }) => {
         return tempstate2;
       case "CHANGE":
         const tempstate3 = state.map((item) => {
-          if (item.id === action.payload.id && action.value > 0) {
+          if (item.id === action.payload.id && action.value > 0 && action.value < 100) {
             return {...item, quantity: action.value };
           } else {
             return item;

@@ -55,7 +55,7 @@ function App() {
         <header className={`${theme}`}>
           <Navbar />
         </header>
-        <main>
+        <main className={`${theme}`}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route

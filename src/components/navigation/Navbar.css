@@ -1,6 +1,5 @@
 nav {
   display: flex;
-  /* position: fixed; */
   width: 100%;
   z-index: 1;
   background-color: white;
@@ -15,7 +14,7 @@ nav {
 }
 
 .logo {
-  width: 100%;
+  max-width: 80px;
 }
 
 .nav-list {
@@ -47,4 +46,13 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media(max-width: 600px) {
+  nav {
+    padding: 0 5px;
+  }
+  .nav-link {
+    font-size: 1rem;
+  }
 }

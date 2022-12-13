@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext} from "react";
 import { useCart } from "../../Context/Context";
 import "./Cart.css";
 import { formatPrice } from "../../utils/functions";
+import { ThemeContext } from "../../Context/ThemeContext";
 
 export default function CartCard({ item, index }) {
   const { state, dispatch } = useCart();
+  const {theme} = useContext(ThemeContext);
 
   return (
     <div className="cart-card" key={index}>
@@ -14,7 +16,6 @@ export default function CartCard({ item, index }) {
       <div className="cart-info">
         <p>{item.title}</p>
         <div className="quantity-container">
-          <p>{`$${formatPrice(item.quantity * item.price)}`}</p>
           <div className="quantity-buttons">
             <button onClick={()=>dispatch({type: 'INCREASE', payload: item})} className="adjust-cart">+</button>
             <input
@@ -25,11 +26,12 @@ export default function CartCard({ item, index }) {
             />
             <button onClick={()=>dispatch({type: 'DECREASE', payload: item})} className="adjust-cart">-</button>
           </div>
+          <p>{`$${formatPrice(item.quantity * item.price)}`}</p>
         </div>
       </div>
       <div className="cart-delete">
         <button id={index} onClick={(e) => dispatch({ type: "REMOVE", payload: item })}>
-          <i className="fa-solid fa-trash-can"></i>
+          <i className={`fa-solid fa-trash-can ${theme}-text`}></i>
         </button>
       </div>
     </div>
