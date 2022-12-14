@@ -21,7 +21,7 @@ export default function Cart() {
             })}
           </div>
           <div className="cart-totals-container">
-            <CartTotals promo={true}/>
+            <CartTotals promo={true} />
             <button onClick={() => navigate("/checkout")} className="checkout">
               Proceed to Checkout
             </button>

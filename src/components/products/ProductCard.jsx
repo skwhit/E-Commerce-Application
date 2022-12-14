@@ -24,8 +24,6 @@ export default function ProductCard({ product }) {
     cardTitle = cardTitle.substring(0, 44) + "...";
   }
 
-
-
   const displayDetail = (e) => {
     console.log(e.target.id);
     navigate(`/products/${e.target.id}`, { state: { productId: e.target.id } });

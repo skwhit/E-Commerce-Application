@@ -58,9 +58,8 @@ export default function Checkout() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    dispatch({type: 'REMOVEALL'})
-    navigate("/submitted")
-    
+    dispatch({ type: "REMOVEALL" });
+    navigate("/submitted");
   };
 
   return (

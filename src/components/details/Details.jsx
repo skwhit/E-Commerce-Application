@@ -94,7 +94,7 @@ export default function Details() {
               )}
             </div>
             <button
-              onClick={() => navigate('/products')}
+              onClick={() => navigate("/products")}
               className="detail-back"
             >{`< All Products`}</button>
           </div>

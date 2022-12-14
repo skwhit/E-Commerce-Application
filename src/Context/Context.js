@@ -14,7 +14,7 @@ export const Context = ({ children }) => {
       case "INCREASE":
         const tempstate2 = state.map((item) => {
           if (item.id === action.payload.id && item.quantity < 99) {
-            return {...item, quantity: item.quantity + 1 };
+            return { ...item, quantity: item.quantity + 1 };
           } else {
             return item;
           }
@@ -22,8 +22,12 @@ export const Context = ({ children }) => {
         return tempstate2;
       case "CHANGE":
         const tempstate3 = state.map((item) => {
-          if (item.id === action.payload.id && action.value > 0 && action.value < 100) {
-            return {...item, quantity: action.value };
+          if (
+            item.id === action.payload.id &&
+            action.value > 0 &&
+            action.value < 100
+          ) {
+            return { ...item, quantity: action.value };
           } else {
             return item;
           }
@@ -39,10 +43,12 @@ export const Context = ({ children }) => {
         });
         return tempstate4;
       case "REMOVE":
-        const tempstate5 = state.filter((item) => item.id !== action.payload.id)
-        return tempstate5
+        const tempstate5 = state.filter(
+          (item) => item.id !== action.payload.id
+        );
+        return tempstate5;
       case "REMOVEALL":
-        return []
+        return [];
       default:
         return state;
     }
