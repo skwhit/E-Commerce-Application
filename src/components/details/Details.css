@@ -5,10 +5,12 @@
   padding: 5% 10%;
   width: 100%;
   height: 100%;
+  border: 2px solid black;
 }
 
 .detail-img-container {
   width: 50%;
+  height: 100%;
   padding: 30px;
   display: flex;
   justify-content: center;

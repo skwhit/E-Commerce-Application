@@ -9,6 +9,7 @@ import { ThemeContext } from "./Context/ThemeContext";
 import Details from "./components/details/Details";
 import { CartContext } from "./Context/Context";
 import Cart from "./components/cart/Cart";
+import Checkout from "./components/checkout/Checkout";
 
 function App() {
   const initialState = {
@@ -70,22 +71,9 @@ function App() {
                 />
               }
             />
-            {/* <Route
-              path={`/products/${state.category}`}
-              element={
-                <ProductList
-                  state={state}
-                  setState={setState}
-                  products={state.products}
-                  categoryCount={state.categoryCount}
-                  loading={state.loading}
-                  // category={state.category}
-                />
-              }
-            /> */}
             <Route path={`/products/:id`} element={<Details />} />
-
             <Route path={`/cart`} element={<Cart />} />
+            <Route path={`/checkout`} element={<Checkout />} />
           </Routes>
         </main>
       </div>

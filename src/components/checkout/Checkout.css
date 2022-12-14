@@ -1,0 +1,125 @@
+* {
+    /* border: 2px solid black; */
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.user-info-container {
+     width: 80%;
+     display: flex;
+     flex-wrap: wrap;
+     padding: 1% 1%;
+}
+
+.user-info-container > div {
+    width: 50%;
+    padding: 0 30px;
+}
+
+.shipping {
+    width: 100% !important;
+    padding: 0 calc(50% + 30px) 0 30px !important;
+}
+
+.payment {
+    position: relative;
+    /* top: -25%; */
+}
+
+.user-info-container label {
+    padding: 5px;
+}
+
+.user-info-container input {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+}
+
+.shipping div, .billing div, .payment div {
+    display: flex;
+    flex-direction:column;
+}
+
+.billing-header {
+    flex-direction: row !important;
+}
+
+.billing-header h1 {
+    margin-right: 10px;
+}
+
+.billing-header input {
+    width: 20px;
+}
+
+.state-zip, .exp-cvv {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    width: 100%;
+    /* border: 2px solid black; */
+    justify-content: space-between;
+}
+
+.state-zip div, .exp-cvv div {
+    width: 40%;
+}
+
+.state-zip input, .exp-cvv input{
+    width: 100%;
+    
+}
+
+.accepted-cards {
+    width: 40%;
+}
+
+.accepted-cards img {
+    width: 100%;
+}
+
+.checkout-info {
+ width: 40%;
+ display: flex;
+ /* justify-content: center; */
+}
+
+.checkout-totals-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 50px;
+    gap: 20px;
+    max-width: 600px;
+  }
+
+  .checkout-cart-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px 0;
+    padding-left: 30px;
+    gap: 20px;
+    height: 100%;
+  }
+  
+  .checkout-cart-info p {
+    font-size: 1.5rem;
+  }
+
+  .checkout-cart-info > p {
+    font-weight: bold;
+  }
+
+  .checkout-cart-container {
+    overflow-y: scroll;
+  }

@@ -12,7 +12,7 @@ export default function Details() {
   const {
     state: { productId = "" },
   } = useLocation();
-
+  const { state } = useCart();
   const { theme } = useContext(ThemeContext);
   const { dispatch } = useCart();
   const navigate = useNavigate();
@@ -29,10 +29,19 @@ export default function Details() {
   });
   const [isAdded, setIsAdded] = useState(false);
 
+  const checkCart = () => {
+    const filter = state.filter((item) => item.id === product.id);
+    return filter.length ? setIsAdded(true) : setIsAdded(false);
+  };
+
   useEffect(() => {
     setLoading(true);
     getProductById(productId, setProduct, setLoading);
   }, []);
+
+  useEffect(() => {
+    checkCart();
+  }, [product]);
 
   const { category, description, id, image, price, rating, title } = product;
 
@@ -47,7 +56,6 @@ export default function Details() {
   };
 
   product.quantity = 1;
-
   return (
     <>
       {loading ? (
@@ -85,7 +93,10 @@ export default function Details() {
                 </button>
               )}
             </div>
-            <button onClick={() => navigate(-1)} className="detail-back">{`< Go back`}</button>
+            <button
+              onClick={() => navigate('/products')}
+              className="detail-back"
+            >{`< All Products`}</button>
           </div>
         </section>
       )}

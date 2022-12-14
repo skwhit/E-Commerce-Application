@@ -3,14 +3,20 @@ import { useCart } from "../../Context/Context";
 import "./Cart.css";
 import { formatPrice } from "../../utils/functions";
 import { ThemeContext } from "../../Context/ThemeContext";
+import { useNavigate } from "react-router-dom";
 
 export default function CartCard({ item, index }) {
   const { state, dispatch } = useCart();
   const {theme} = useContext(ThemeContext);
+  const navigate = useNavigate();
+
+  const navToDetail = () => {
+    navigate(`/products/${item.id}`, { state: { productId: item.id } });
+  }
 
   return (
     <div className="cart-card" key={index}>
-      <div className="cart-img-container">
+      <div onClick={navToDetail} className="cart-img-container">
         <img src={item.image} alt="" />
       </div>
       <div className="cart-info">
