@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/e-commerce-application/static/css/main.3e39f045.css",
-    "main.js": "/e-commerce-application/static/js/main.0f7d75c6.js",
+    "main.css": "/e-commerce-application/static/css/main.e36a737a.css",
+    "main.js": "/e-commerce-application/static/js/main.d9789189.js",
     "static/media/homepage.jpg": "/e-commerce-application/static/media/homepage.a830434ea450987a9dcf.jpg",
+    "static/media/acceptedCards.png": "/e-commerce-application/static/media/acceptedCards.a06c1477cce6955ff1e0.png",
     "static/media/loading-gif.gif": "/e-commerce-application/static/media/loading-gif.803f24369a085e35482e.gif",
     "static/media/logo192.png": "/e-commerce-application/static/media/logo192.b15da38b9799521aef20.png",
     "index.html": "/e-commerce-application/index.html",
-    "main.3e39f045.css.map": "/e-commerce-application/static/css/main.3e39f045.css.map",
-    "main.0f7d75c6.js.map": "/e-commerce-application/static/js/main.0f7d75c6.js.map"
+    "main.e36a737a.css.map": "/e-commerce-application/static/css/main.e36a737a.css.map",
+    "main.d9789189.js.map": "/e-commerce-application/static/js/main.d9789189.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e39f045.css",
-    "static/js/main.0f7d75c6.js"
+    "static/css/main.e36a737a.css",
+    "static/js/main.d9789189.js"
   ]
 }
