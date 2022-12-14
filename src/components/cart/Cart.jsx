@@ -21,14 +21,14 @@ export default function Cart() {
             })}
           </div>
           <div className="cart-totals-container">
-            <CartTotals />
+            <CartTotals promo={true}/>
             <button onClick={() => navigate("/checkout")} className="checkout">
               Proceed to Checkout
             </button>
           </div>
         </>
       ) : (
-        <div className="empty-cart">
+        <div className={`empty-cart ${theme}`}>
           <h1>Your Cart is Currently Empty</h1>
           <button onClick={() => navigate("/products")}>
             Back to products

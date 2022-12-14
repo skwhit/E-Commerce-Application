@@ -10,6 +10,7 @@ import Details from "./components/details/Details";
 import { CartContext } from "./Context/Context";
 import Cart from "./components/cart/Cart";
 import Checkout from "./components/checkout/Checkout";
+import Submitted from "./components/submitted/Submitted";
 
 function App() {
   const initialState = {
@@ -74,6 +75,7 @@ function App() {
             <Route path={`/products/:id`} element={<Details />} />
             <Route path={`/cart`} element={<Cart />} />
             <Route path={`/checkout`} element={<Checkout />} />
+            <Route path={`/submitted`} element={<Submitted />} />
           </Routes>
         </main>
       </div>

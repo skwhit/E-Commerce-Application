@@ -4,6 +4,7 @@
   align-items: center;
   padding-top: 30px;
   gap: 20px;
+  height: calc(100vh - 80px );
 }
 
 .loading-container img {

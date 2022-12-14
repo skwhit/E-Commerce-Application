@@ -41,6 +41,8 @@ export const Context = ({ children }) => {
       case "REMOVE":
         const tempstate5 = state.filter((item) => item.id !== action.payload.id)
         return tempstate5
+      case "REMOVEALL":
+        return []
       default:
         return state;
     }

@@ -3,10 +3,12 @@ import "./Checkout.css";
 import CheckoutCartCard from "./CheckoutCartCard";
 import { useCart } from "../../Context/Context";
 import CartTotals from "../cart/CartTotals";
-import acceptedCards from "./acceptedCards.png"
+import acceptedCards from "./acceptedCards.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
-  const { state } = useCart();
+  const { state, dispatch } = useCart();
+  const navigate = useNavigate();
 
   const initialShippingState = {
     Name: "",
@@ -54,8 +56,25 @@ export default function Checkout() {
     e.target.checked ? setBilling(shipping) : setBilling(initialBillingState);
   };
 
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    dispatch({type: 'REMOVEALL'})
+    navigate("/submitted")
+    
+  };
+
   return (
     <section className="checkout-container">
+      <div className="checkout-info">
+        <div className="checkout-totals-container">
+          <CartTotals promo={false} />
+          <div className="checkout-cart-container">
+            {state.map((item, index) => (
+              <CheckoutCartCard item={item} index={index} />
+            ))}
+          </div>
+        </div>
+      </div>
       <form className="user-info-container">
         <div className="shipping">
           <h1>Shipping Address</h1>
@@ -210,7 +229,9 @@ export default function Checkout() {
         <div className="payment">
           <h1>Payment</h1>
           <div className="cards">
-            <div className="accepted-cards"><img src={acceptedCards} alt="" /></div>
+            <div className="accepted-cards">
+              <img src={acceptedCards} alt="" />
+            </div>
           </div>
           <div className="card-name">
             <label htmlFor="card-name">Name on Card</label>
@@ -265,17 +286,16 @@ export default function Checkout() {
             </div>
           </div>
         </div>
-      </form>
-      <div className="checkout-info">
-        <div className="checkout-totals-container">
-          <CartTotals />
-          <div className="checkout-cart-container">
-          {state.map((item, index) => (
-            <CheckoutCartCard item={item} index={index} />
-          ))}
-          </div>
+        <div className="checkout-submit-container">
+          <button
+            className="checkout-submit"
+            onClick={handleFormSubmit}
+            type="submit"
+          >
+            Submit your order
+          </button>
         </div>
-      </div>
+      </form>
     </section>
   );
 }

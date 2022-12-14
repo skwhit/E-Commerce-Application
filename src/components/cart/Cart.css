@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   min-height: 100%;
+  
 }
 
 .cart-items-container {
@@ -92,6 +93,8 @@
   color: black;
   position: relative;
   text-align: center;
+  padding: 4px 0;
+  outline: none;
 }
 
 .cart-delete button {
@@ -169,7 +172,7 @@
   align-items: center;
   padding-top: 50px;
   gap: 30px;
-  height: 100%;
+  height: calc(100vh - 120px );
 }
 
 .empty-cart button {
@@ -204,6 +207,8 @@
   .cart-container {
     flex-direction: column;
     padding: 1% 0;
+    min-height: calc(100vh - 80px );
+    justify-content: top;
   }
 
   .cart-items-container {
@@ -221,5 +226,9 @@
   .cart-info p {
     font-size: 1.2rem;
   }
- 
+  
+  .empty-cart {
+    height: calc(100vh - 90px );
+  }
+  
 }

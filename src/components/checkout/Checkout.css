@@ -22,13 +22,15 @@
 }
 
 .shipping {
-    width: 100% !important;
-    padding: 0 calc(50% + 30px) 0 30px !important;
+    order: -2;
 }
 
 .payment {
-    position: relative;
-    /* top: -25%; */
+    order: -1;
+}
+
+.payment h1 {
+    padding-bottom: 5px;
 }
 
 .user-info-container label {
@@ -122,4 +124,60 @@
 
   .checkout-cart-container {
     overflow-y: scroll;
+  }
+
+  .checkout-submit-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20%;
+  }
+
+  .checkout-submit {
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    background-color: rgb(72, 91, 123);
+  }
+  
+  .checkout-submit:hover {
+    background-color: rgb(53, 64, 83);
+  }
+
+  @media (max-width: 600px) {
+
+    .checkout-container {
+        flex-direction: column;
+    }
+    .checkout-info {
+        width: 100%;
+    }
+
+    .user-info-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .shipping, .billing, .payment {
+        width: 100% !important;
+        padding-bottom: 20px !important;
+    }
+
+    .shipping, .payment {
+        order: 0;
+    }
+
+    .checkout-cart-container {
+        overflow-y: auto;
+      }
+    
+    .checkout-submit-container {
+        margin-bottom: 50px;
+        align-self: center;
+    }
+    
   }

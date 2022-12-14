@@ -1,12 +1,15 @@
-import React, { useState, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
 import "./Navbar.css";
 import DarkMode from "../darkmode/DarkMode";
 import { ThemeContext } from "../../Context/ThemeContext";
 import logo from "./logo192.png";
+import { useCart } from "../../Context/Context";
 
 export default function Navbar() {
   const { theme } = useContext(ThemeContext);
+  const { state } = useCart();
+  const navigate = useNavigate();
 
   const navLinkStyles = ({ isActive }) => {
     if (theme === "light") {
@@ -16,9 +19,17 @@ export default function Navbar() {
     }
   };
 
+  const cartQuantity = () => {
+    let quantity = 0;
+    state.forEach((item) => {
+      quantity += item.quantity;
+    });
+    return quantity;
+  };
+
   return (
     <nav className={`${theme}`}>
-      <div className="logo-container">
+      <div onClick={() => navigate("/")} className="logo-container">
         <img class="logo" src={logo} alt="logo" />
       </div>
       <ul className="nav-list">
@@ -32,9 +43,19 @@ export default function Navbar() {
             Products
           </NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink style={navLinkStyles} className={`nav-link`} to="/cart">
-            <i className={`fa-solid fa-cart-shopping`}></i>
+
+        <li className="nav-item cart">
+          <NavLink
+            style={navLinkStyles}
+            className={`nav-link nav-cart`}
+            to="/cart"
+          >
+            <i className={`fa-solid fa-cart-shopping nav-cart`}></i>
+            {state.length ? (
+              <p className="nav-cart-quantity">{cartQuantity()}</p>
+            ) : (
+              <></>
+            )}
           </NavLink>
         </li>
         <li className="nav-item">
