@@ -26,7 +26,8 @@ export default function ProductCard({ product }) {
 
   const displayDetail = (e) => {
     console.log(e.target.id);
-    navigate(`/products/${e.target.id}`, { state: { productId: e.target.id } });
+    // navigate(`/products/${e.target.id}`, { state: { productId: e.target.id } });
+    navigate(`/products/${e.target.id}`, { state: { product: product } });
   };
 
   return (

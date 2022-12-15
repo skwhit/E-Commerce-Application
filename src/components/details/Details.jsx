@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getProductById } from "../../utils/products";
 import Loading from "../loading/Loading";
 import "./Details.css";
 import { ThemeContext } from "../../Context/ThemeContext";
@@ -10,34 +9,19 @@ import { formatPrice } from "../../utils/functions";
 
 export default function Details() {
   const {
-    state: { productId = "" },
+    state: { product },
   } = useLocation();
   const { state } = useCart();
   const { theme } = useContext(ThemeContext);
   const { dispatch } = useCart();
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false);
-  const [product, setProduct] = useState({
-    category: "",
-    description: "",
-    id: "",
-    image: "",
-    price: "",
-    rating: "",
-    title: "",
-  });
   const [isAdded, setIsAdded] = useState(false);
 
   const checkCart = () => {
     const filter = state.filter((item) => item.id === product.id);
     return filter.length ? setIsAdded(true) : setIsAdded(false);
   };
-
-  useEffect(() => {
-    setLoading(true);
-    getProductById(productId, setProduct, setLoading);
-  }, []);
 
   useEffect(() => {
     checkCart();
@@ -58,9 +42,6 @@ export default function Details() {
   product.quantity = 1;
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
         <section className={`detail-container ${theme}`}>
           <div className="detail-img-container">
             <img src={image} alt="" />
@@ -99,7 +80,6 @@ export default function Details() {
             >{`< All Products`}</button>
           </div>
         </section>
-      )}
     </>
   );
 }
