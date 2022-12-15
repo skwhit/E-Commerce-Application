@@ -22,7 +22,7 @@ export default function Navbar() {
   const cartQuantity = () => {
     let quantity = 0;
     state.forEach((item) => {
-      quantity += item.quantity;
+      quantity += Number(item.quantity);
     });
     return quantity;
   };

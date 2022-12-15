@@ -13,7 +13,7 @@ export default function CheckoutCartCard({ item, index }) {
       <div className="checkout-cart-info">
         <p>{item.title}</p>
         <div className="quantity-container">
-          <div className="quantity-buttons"></div>
+          <div className="quantity-buttons">{`Quantity: ${item.quantity}`}</div>
           <p>{`$${formatPrice(item.quantity * item.price)}`}</p>
         </div>
       </div>
