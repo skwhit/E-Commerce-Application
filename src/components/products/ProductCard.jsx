@@ -1,11 +1,13 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ThemeContext } from "../../Context/ThemeContext";
 import "./Products.css";
 import { useNavigate } from "react-router-dom";
 import { formatPrice } from "../../utils/functions";
+import { useCart } from "../../Context/Context";
 
 export default function ProductCard({ product }) {
   const { theme } = useContext(ThemeContext);
+  const { state } = useCart();
   const navigate = useNavigate();
 
   const {
@@ -23,12 +25,14 @@ export default function ProductCard({ product }) {
   if (cardTitle.length > 47) {
     cardTitle = cardTitle.substring(0, 44) + "...";
   }
-
+ 
   const displayDetail = (e) => {
     console.log(e.target.id);
     // navigate(`/products/${e.target.id}`, { state: { productId: e.target.id } });
     navigate(`/products/${e.target.id}`, { state: { product: product } });
   };
+
+  product.quantity = 1;
 
   return (
     <div className={`product-card-container ${theme}`}>

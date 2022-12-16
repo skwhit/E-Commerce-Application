@@ -11,7 +11,7 @@ export default function CartCard({ item, index }) {
   const navigate = useNavigate();
 
   const navToDetail = () => {
-    navigate(`/products/${item.id}`, { state: { productId: item.id } });
+    navigate(`/products/${item.id}`, { state: { product: item } });
   };
 
   return (

@@ -47,11 +47,6 @@ function App() {
     } else {
       isMounted.current = true;
     }
-    // if (isMounted.current) {
-    //     setState({...state, products: state.products.filter((product) => product.category === state.category)})
-    //   } else {
-    //     isMounted.current = true;
-    //   }
   }, [state.category]);
 
   const providerTheme = useMemo(() => ({ theme, setTheme }), [theme, setTheme]);
