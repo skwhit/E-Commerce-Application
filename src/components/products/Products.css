@@ -148,8 +148,14 @@
 }
 
 @media (min-width: 2200px) {
+
+  .products-container {
+    max-width: 2500px;
+    margin: 0 auto;
+  }
+
   .product-card-container {
-    width: 10%;
+    width: 20%;
   }
 }
 
