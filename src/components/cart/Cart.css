@@ -151,6 +151,7 @@
 }
 
 .checkout {
+  margin-top: 5px;
   padding: 10px;
   font-size: 1.2rem;
   cursor: pointer;
@@ -171,11 +172,12 @@
   justify-content: top;
   align-items: center;
   padding-top: 50px;
-  gap: 30px;
+  /* gap: 30px; */
   height: calc(100vh - 120px);
 }
 
 .empty-cart button {
+  margin-top: 30px;
   padding: 10px;
   font-size: 1.2rem;
   cursor: pointer;
