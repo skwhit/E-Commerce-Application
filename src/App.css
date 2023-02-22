@@ -10,7 +10,14 @@ header {
   width: 100vw;
   position: fixed;
   z-index: 1;
-  border-bottom: 5px solid lightgrey;
+  /* border-bottom: 5px solid lightgrey; */
+}
+
+@media(max-width: 1300px) {
+
+  header {
+    border-bottom: none;
+  }
 }
 
 @media(max-width: 600px) {

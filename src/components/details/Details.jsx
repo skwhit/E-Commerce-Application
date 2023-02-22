@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import Loading from "../loading/Loading";
+import { useLocation } from "react-router-dom";
+// import Loading from "../loading/Loading";
 import "./Details.css";
 import { ThemeContext } from "../../Context/ThemeContext";
 import { uppercase, uppercaseFirstLetter } from "../../utils/functions";
@@ -14,7 +14,7 @@ export default function Details() {
   const { state } = useCart();
   const { theme } = useContext(ThemeContext);
   const { dispatch } = useCart();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [isAdded, setIsAdded] = useState(false);
   const [quantity, setQuantity] = useState(product.quantity);
@@ -32,7 +32,7 @@ export default function Details() {
     product.quantity = quantity;
   }, [quantity]);
 
-  const { category, description, id, image, price, rating, title } = product;
+  const { category, description, image, price, rating, title } = product;
 
   const handleQuantityChange = (e) => {
     if (e.target.value > 0 && e.target.value < 100) {
@@ -71,7 +71,7 @@ export default function Details() {
             </h4>
           </div>
 
-          <h3>{category.length ? uppercaseFirstLetter(description) : ""}</h3>
+          <h3 className="detail-description">{category.length ? uppercaseFirstLetter(description) : ""}</h3>
           <div className="detail-cart">
             <h3>{`$${formatPrice(price)}`}</h3>
             <div className="detail-cart-inputs">
@@ -97,10 +97,10 @@ export default function Details() {
               
             </div>
           </div>
-          <button
+          {/* <button
             onClick={() => navigate("/products")}
             className="detail-back"
-          >{`< All Products`}</button>
+          >{`< All Products`}</button> */}
         </div>
       </section>
     </>

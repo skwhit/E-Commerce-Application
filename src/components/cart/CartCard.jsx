@@ -24,10 +24,10 @@ export default function CartCard({ item, index }) {
         <div className="quantity-container">
           <div className="quantity-buttons">
             <button
-              onClick={() => dispatch({ type: "INCREASE", payload: item })}
+              onClick={() => dispatch({ type: "DECREASE", payload: item })}
               className="adjust-cart"
             >
-              +
+              -
             </button>
             <input
               onChange={(e) =>
@@ -43,10 +43,10 @@ export default function CartCard({ item, index }) {
               onClick={(e) => e.target.select()}
             />
             <button
-              onClick={() => dispatch({ type: "DECREASE", payload: item })}
+              onClick={() => dispatch({ type: "INCREASE", payload: item })}
               className="adjust-cart"
             >
-              -
+              +
             </button>
           </div>
           <p>{`$${formatPrice(item.quantity * item.price)}`}</p>
